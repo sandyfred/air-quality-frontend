@@ -1,0 +1,35 @@
+<div *ngIf="isFavouriteExists">
+  <h2>Favourites</h2>
+  <mat-grid-list cols="4" rowHeight="4:5">
+    <mat-grid-tile *ngFor="let fav of favs" (click)="removeFromFavourites(fav)">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <mat-card-title>{{ fav.city }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div>
+            <p>AQI: {{ fav.aqi }}</p>
+            <p>Carbon Monoxide: {{ fav.pollutants.co }}</p>
+            <mat-progress-bar
+          class="example-margin"
+          [color]="color"
+          [mode]="mode"
+          [value]="value"
+          [bufferValue]="bufferValue">
+      </mat-progress-bar>
+            <p>Sulphur Dioxide: {{ fav.pollutants.so2 }}</p>
+            <p>Nitrogen Dioxide: {{ fav.pollutants.no2 }}</p>
+            <p>Ozone: {{ fav.pollutants.o3 }}</p>
+            <p>PM2.5: {{ fav.pollutants.pm2_5 }}</p>
+            <p>PM10: {{ fav.pollutants.pm10 }}</p>
+          </div>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-mini-fab color="primary">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

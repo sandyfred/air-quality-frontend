@@ -15,6 +15,10 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { FormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { SearchComponent } from './search/search.component';
+import { FavouritesComponent } from './favourites/favourites.component';
+import {ThemePalette} from '@angular/material/core';
+import {ProgressBarMode} from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [
@@ -23,6 +27,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     LoginComponent,
     RegisterComponent,
     DashboardComponent,
+    SearchComponent,
+    FavouritesComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,7 +40,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatGridListModule,
     FormsModule,
     MatSelectModule,
-    MatFormFieldModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent],
