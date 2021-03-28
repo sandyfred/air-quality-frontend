@@ -1,1 +1,26 @@
-<p>login works!</p>
+<div class="login-container">
+    <div class="login-form">
+    <div class="row justify-content-start">
+      <div class="col-4">
+        <label>userId:
+          <input class="userId" matInput [formControl]='userId'>
+        </label>
+      </div>
+    </div>
+    <div class="row justify-content-start">
+      <div class="col-4">
+        <label>userPassword:
+          <input class="userPassword" matInput type = 'password' [formControl]='userPassword'>
+        </label>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-4">
+        <button class="btn btn-primary" (click)="loginSubmit()">Submit</button>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div style="text-align:center">
+    <label class="error-message">{{ submitMessage }}</label>
+  </div>

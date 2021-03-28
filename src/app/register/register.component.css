@@ -1,0 +1,12 @@
+.register-container
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.register-form
+{   
+   margin: 10% auto;
+   width: 20vw;
+}
