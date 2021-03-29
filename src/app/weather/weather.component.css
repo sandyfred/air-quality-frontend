@@ -1,8 +1,8 @@
 .example-card {
     width: 400px;
-    position: absolute;
+    /* position: absolute;
     left: 100px;
-    top: 220px;
+    top: 220px; */
   }
 
   .example-header-image {

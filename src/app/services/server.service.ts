@@ -15,7 +15,7 @@ export class ServerService {
       {
         headers: {
           Authorization:
-            'Bearer eyJhbGciOiJIUzI1NiJ9.eyJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6IkphdmFJblVzZSIsImV4cCI6MTYyMjE5NTU5MCwiaWF0IjoxNjE2OTI1MTkwfQ.iOKLTv7fT2fVdl29yA-8c8M-5Irdp05iglwEk_Q1i_Y',
+            'Bearer eyJhbGciOiJIUzI1NiJ9.eyJJc3N1ZXIiOiJJc3N1ZXIiLCJleHAiOjE2MTcxODY0MjcsImlhdCI6MTYxNzAxMzYyN30.hkGFUd3gELnP7tpr3GPVj7pPxE_-6bxkUvY0ufUQ8R8',
         },
       }
     );

@@ -1,8 +1,19 @@
 .example-card {
-  max-width: 400px;
+  width: 250px;
 }
 .example-button-container {
   display: flex;
   justify-content: center;
   width: 50px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+}
+
+.elem {
+  position: absolute;
+  right: 20px;
 }

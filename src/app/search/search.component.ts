@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { COUNTRIES } from '../countries';
 import { ApiService } from '../services/api.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { ApiService } from '../services/api.service';
   styleUrls: ['./search.component.css'],
 })
 export class SearchComponent implements OnInit {
-  countries: string[] = ['Angola', 'India'];
+  countries = COUNTRIES;
   selectedCountry?: string;
   states: string[] = [];
   selectedState?: string;
@@ -20,16 +21,10 @@ export class SearchComponent implements OnInit {
   dataSource: any;
   weather: any;
 
-  constructor(private apiService: ApiService,
-    private http: HttpClient) {}
+  constructor(private apiService: ApiService, private http: HttpClient) {}
 
   ngOnInit(): void {
-    this.apiService
-      .getCountries()
-      .subscribe((response) =>
-        response['data'].map((item) => this.countries.push(item.country))
-      );
-      this.getNearestCityAqi();
+    this.getNearestCityAqi();
   }
 
   getStates() {
@@ -53,32 +48,29 @@ export class SearchComponent implements OnInit {
   }
 
   getCityAqi() {
-    this.apiService.getCityAqi(
-      this.selectedCountry,
-      this.selectedState,
-      this.selectedCity
-    ).subscribe((response) => {
-      this.aqi = response['data'].current.pollution.aqius;
-      this.city = response['data'].city;
-      this.weather = response['data'].current.weather;
-      this.http
-        .get(
-          `http://api.openweathermap.org/data/2.5/air_pollution?lat=${response['data'].location.coordinates[1]}&lon=${response['data'].location.coordinates[0]}&appid=bb08115ee62ead9f1188cc5419645a27`
-        )
-        .subscribe((res) => {
-          this.dataSource = Object.keys(res['list'][0].components).map(
-            (key) => ({
-              name: key,
-              value: res['list'][0].components[key],
-            })
-          );
-          console.log(this.dataSource);
-        });
-      console.log(this.aqi);
-      console.log(this.city);
-    });
+    this.apiService
+      .getCityAqi(this.selectedCountry, this.selectedState, this.selectedCity)
+      .subscribe((response) => {
+        this.aqi = response['data'].current.pollution.aqius;
+        this.city = response['data'].city;
+        this.weather = response['data'].current.weather;
+        this.http
+          .get(
+            `http://api.openweathermap.org/data/2.5/air_pollution?lat=${response['data'].location.coordinates[1]}&lon=${response['data'].location.coordinates[0]}&appid=bb08115ee62ead9f1188cc5419645a27`
+          )
+          .subscribe((res) => {
+            this.dataSource = Object.keys(res['list'][0].components).map(
+              (key) => ({
+                name: key,
+                value: res['list'][0].components[key],
+              })
+            );
+            console.log(this.dataSource);
+          });
+        console.log(this.aqi);
+        console.log(this.city);
+      });
   }
-
 
   getNearestCityAqi() {
     this.apiService.getNearestCity().subscribe((response) => {
@@ -102,5 +94,4 @@ export class SearchComponent implements OnInit {
       console.log(this.city);
     });
   }
-  
 }

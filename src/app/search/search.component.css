@@ -1,5 +1,20 @@
 .example-card {
-    width: 100%;
-    
-    
-  }
+  width: 400px;
+  height: 200px;
+}
+
+.grid-container1 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+  grid-gap: 1em;
+}
+
+.grid-container2 {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 1em;
+  align-items: center;
+  justify-items: center;
+}
