@@ -41,10 +41,9 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
+    <button mat-button *ngIf="selectedCity">Add to Favourites</button>
   </mat-card-content>
-  <mat-card-actions *ngIf="selectedCity">
-    <button mat-button>Add to Favourites</button>
-  </mat-card-actions>
 </mat-card>
 
-<h2 *ngIf="aqi">AQI: {{ aqi }}</h2>
+<app-aqicard [aqi]="aqi" [city]="city" [dataSource]="dataSource"></app-aqicard>
+<app-weather [weather]="weather" [city]="city"></app-weather>

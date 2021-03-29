@@ -1,0 +1,15 @@
+.example-card {
+    width: 400px;
+    position: absolute;
+    left: 100px;
+    top: 220px;
+  }
+
+  .example-header-image {
+    background-size: contain;
+  }
+
+  .item {
+    position: absolute;
+    right: 20px;
+  }

@@ -30,6 +30,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { RouterService } from './services/router.service';
 import { AuthenticationService } from './services/authentication.service';
 import { RegisterService } from './services/register.service';
+import { AqicardComponent } from './aqicard/aqicard.component';
+import {MatTableModule} from '@angular/material/table';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { WeatherComponent } from './weather/weather.component';
+import {MatDividerModule} from '@angular/material/divider';
 
 const appRoutes: Routes = [
   {path: 'register', component:RegisterComponent},
@@ -46,6 +51,8 @@ const appRoutes: Routes = [
     DashboardComponent,
     SearchComponent,
     FavouritesComponent,
+    AqicardComponent,
+    WeatherComponent,
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
@@ -65,7 +72,10 @@ const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     MatSelectModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatTableModule,
+    FlexLayoutModule,
+    MatDividerModule
   ],
   providers: [
     RouterService,

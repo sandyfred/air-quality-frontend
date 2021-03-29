@@ -1,0 +1,17 @@
+<mat-card class="example-card" *ngIf="weather">
+  <mat-card-header>
+    <mat-card-title>Current Weather in {{city}}</mat-card-title>
+    <div mat-card-avatar class="example-header-image" [style.background-image]="'url(../../assets/weather/' + weather.ic + '.png)'"></div>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item>Temperature: <span class="item">{{ weather.tp }} °C</span></mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>Pressure:  <span class="item">{{ weather.pr }} mb</span></mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>Humidity:  <span class="item">{{ weather.hu }} %</span></mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>Wind Speed:  <span class="item">{{ weather.ws }} m/s</span></mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>
