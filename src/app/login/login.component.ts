@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
     this.submitMessage = '';
     this.user = new User;
   }
-
+  
   ngOnInit(): void {
     this.createForm();
   }

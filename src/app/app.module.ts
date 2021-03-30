@@ -37,6 +37,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { SubscriptionComponent } from './subscription/subscription.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatRadioModule } from '@angular/material/radio';
+import { FooterComponent } from './footer/footer.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -65,6 +66,7 @@ const routes: Routes = [
     AqicardComponent,
     WeatherComponent,
     SubscriptionComponent,
+    FooterComponent,
   ],
   imports: [
     RouterModule.forRoot(routes),
