@@ -71,7 +71,6 @@ export class RegisterComponent implements OnInit {
     console.log(this.formGroup.get('userEmail').value)
     this.regService.registerUser(this.user).subscribe(data=>{
       console.log("data"+data);
-      alert("User Registered Successfully!");
       this.router.navigate(["/login"]);
     }, err => {
       this.submitMessage = err.message;

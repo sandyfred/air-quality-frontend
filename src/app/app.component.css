@@ -2,8 +2,10 @@
   height: 100%;
 }
 
-.sidenav {
-  width: 200px;
+.mat-sidenav{
+  background-color: rgb(95, 100, 104);
+  width: 20%;
+  height: 100%;
 }
 
 .sidenav .mat-toolbar {

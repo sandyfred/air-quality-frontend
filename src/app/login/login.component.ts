@@ -44,7 +44,6 @@ export class LoginComponent implements OnInit {
         console.log(data)
         localStorage.setItem('bearerToken', data);
         localStorage.setItem("userEmail",this.formGroup.get('userEmail').value)
-        alert("Logged in!")
         this.router.navigate(["/dashboard"]);
 
       } 
@@ -53,6 +52,4 @@ export class LoginComponent implements OnInit {
       }
     );
   }
-  //on logout clear the localstorage
-  
 }

@@ -15,18 +15,17 @@
   margin: auto;
   width: 50%;
   padding: 10px;
+  top: 10px;
+  position: center;
 }
-.fill-remaining-space {
-    flex: 1 1 auto;
+#wrapper{
+  margin-left:auto;
+  margin-right:auto;
+  background-color: #fff;
   }
-  
-  .container {
-    padding: 10px;
-  }
-  
   .form {
     min-width: 150px;
-    max-width: 500px;
+    max-width: 250px;
     width: 100%;
   }
   
@@ -36,5 +35,7 @@
   }
   
   .button {
-    width: 100%;
+    align-items: center;
+    width: 50%;
+    background: #2e4055;
   }
