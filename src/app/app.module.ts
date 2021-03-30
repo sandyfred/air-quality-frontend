@@ -23,11 +23,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { RouterModule, Routes } from '@angular/router';
-import { RouterService } from './services/router.service';
+import { FlexLayoutModule } from "@angular/flex-layout";
 import { AuthenticationService } from './services/authentication.service';
 import { RegisterService } from './services/register.service';
+import { HomeComponent } from './home/home.component';
+import { SidenavListComponent } from './sidenav-list/sidenav-list.component';
 
-const appRoutes: Routes = [
+const routes: Routes = [
+  {path: 'home', component:HomeComponent},
+  {path:'', redirectTo:'/home',pathMatch:'full'},
   {path: 'register', component:RegisterComponent},
   { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent, canActivate: [CanActivateRouteGuard] }
@@ -38,13 +42,16 @@ const appRoutes: Routes = [
     AppComponent,
     HeaderComponent,
     LoginComponent,
+    HomeComponent,
     RegisterComponent,
     DashboardComponent,
+    SidenavListComponent
   ],
   imports: [
-    RouterModule.forRoot(appRoutes),
+    RouterModule.forRoot(routes),
     BrowserModule,
     NoopAnimationsModule,
+    FlexLayoutModule,
     MatListModule,
     MatToolbarModule,
     MatSidenavModule,
@@ -59,10 +66,9 @@ const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     MatSelectModule,
-    MatFormFieldModule,
+    MatFormFieldModule
   ],
   providers: [
-    RouterService,
     AuthenticationService,
     RegisterService,
     CanActivateRouteGuard

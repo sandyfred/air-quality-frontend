@@ -1,21 +1,24 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class AuthenticationService {
-  private authUrl: string;
+  private authUrl = 'http://localhost:8080/api/v1/auth/login';
   constructor(private httpClient: HttpClient) {
-    this.authUrl = 'http://localhost:8080/api/v1/auth/login';
+    
   }
 
-  authenticateUser(data: any) {
-    return this.httpClient.post(this.authUrl, data);
+  authenticateUser(newUser:any): Observable<any>  {
+    sessionStorage.setItem("userEmail", newUser.userEmail);
+    return this.httpClient.post(this.authUrl, newUser, {responseType: 'text'});
   }
 
-  setBearerToken(token: string) {
-    localStorage.setItem('bearerToken', token);
-  }
+  // setBearerToken(token: string) {
+  //   localStorage.setItem('bearerToken', token);
+  // }
+
 
   getBearerToken() {
     return localStorage.getItem('bearerToken');

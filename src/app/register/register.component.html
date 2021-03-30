@@ -1,33 +1,54 @@
-<div class="register-container">
-    <div class="register-form">
-    <div class="row justify-content-start">
+<!-- <div class="register-container">
+  <div class="register-form">
+  <div class="row justify-content-start">
       <div class="col-4">
-        <label>userId:
-          <input class="userId" matInput [formControl]='userId'>
+        <label>userEmail:
+          <input class="userEmail" matInput [formControl]='userEmail'>
         </label>
       </div>
     </div>
-    <div class="row justify-content-start">
-        <div class="col-4">
-          <label>userEmail:
-            <input class="userId" matInput [formControl]='userEmail'>
-          </label>
-        </div>
-      </div>
-    <div class="row justify-content-start">
-      <div class="col-4">
-        <label>userPassword:
-          <input class="userPassword" matInput type = 'password' [formControl]='userPassword'>
-        </label>
-      </div>
-    </div>
-    <div class="row justify-content-center">
-      <div class="col-4">
-        <button class="btn btn-primary" (click)="registerSubmit()">Submit</button>
-      </div>
+  <div class="row justify-content-start">
+    <div class="col-4">
+      <label>userPassword:
+        <input class="userPassword" matInput type = 'password' [formControl]='userPassword'>
+      </label>
     </div>
   </div>
+  <div class="row justify-content-center">
+    <div class="col-4">
+      <button class="btn btn-primary" (click)="registerSubmit()">Submit</button>
+    </div>
   </div>
-  <div style="text-align:center">
-    <label class="error-message">{{ submitMessage }}</label>
+</div>
+</div>
+<div style="text-align:center">
+  <label class="error-message">{{ submitMessage }}</label>
+</div> -->
+<div [formGroup]="formGroup">
+<div class="container">
+  <mat-form-field class="form-element">
+    <input matInput placeholder="Email Address" formControlName="userEmail">
+    <mat-error *ngIf="!formGroup.controls['userEmail'].valid && formGroup.controls['userEmail'].touched">
+      {{ getErrorEmail() }}
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="form-element">
+    <input matInput placeholder="Password" type="password" formControlName="userPassword">
+    <mat-hint>Choose a password of at least eight characters, one uppercase letter and one number</mat-hint>
+    <mat-error *ngIf="!formGroup.controls['userPassword'].valid && formGroup.controls['userPassword'].touched">
+      {{ getErrorPassword() }}
+    </mat-error>
+  </mat-form-field>
+
+
+  <div class="form-element">
+    <button mat-raised-button color="primary" type="submit" class="button"[disabled]="!formGroup.valid" (click)="registerSubmit()">Register</button>
   </div>
+</div>
+</div>
+<!-- <ng-template #forminfo>
+<div class="container">
+{{ post | json }}
+</div>
+</ng-template> -->
