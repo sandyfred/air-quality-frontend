@@ -1,5 +1,14 @@
+<!-- <mat-sidenav-container>
+    <mat-sidenav #sidenav mode="navigation">
+        <app-sidenav-list (sidenavClose)="sidenav.close()"></app-sidenav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <app-header (sidenavToggle)="sidenav.toggle()"></app-header>
+        <main>
+            <router-outlet></router-outlet>
+        </main> 
+    </mat-sidenav-content>
+</mat-sidenav-container> -->
+
 <app-header></app-header>
-<!-- <app-register></app-register>
-<app-login></app-login> -->
-<!-- <app-dashboard></app-dashboard> -->
-<app-subscription [username]="username"></app-subscription>
+<router-outlet></router-outlet>

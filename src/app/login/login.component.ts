@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
 import { AuthenticationService } from '../services/authentication.service';
 import { User } from '../User';
-import { RouterService } from '../services/router.service'; 
 import { HttpHeaders } from '@angular/common/http';
+import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -13,36 +13,46 @@ import { HttpHeaders } from '@angular/common/http';
 export class LoginComponent implements OnInit {
   // const headers = new HttpHeaders()
   //  .set('content-type', 'application/json')
+  formGroup: FormGroup;
   submitMessage: string;
   user: User;
-  userId = new FormControl();
+  userEmail = new FormControl();
   userPassword = new FormControl();
-  constructor(private routerService: RouterService, private authService: AuthenticationService) {
+  constructor(private router:Router, private authService: AuthenticationService,private formBuilder: FormBuilder) {
     this.submitMessage = '';
     this.user = new User;
   }
 
   ngOnInit(): void {
+    this.createForm();
+  }
+
+  createForm() {
+    this.formGroup = this.formBuilder.group({
+      'userEmail': [null],
+      'userPassword': [null]
+    });
   }
 
   loginSubmit() {
     this.submitMessage = '';
-    this.user.userId = this.userId.value;
-    this.user.userPassword = this.userPassword.value;
+    this.user.userEmail = this.formGroup.get('userEmail').value;
+    this.user.userPassword = this.formGroup.get('userPassword').value;
+    
+    this.authService.authenticateUser(this.user).subscribe(data=>{
+      if(data){
+        console.log(data)
+        localStorage.setItem('bearerToken', data);
+        localStorage.setItem("userEmail",this.formGroup.get('userEmail').value)
+        alert("Logged in!")
+        this.router.navigate(["/dashboard"]);
 
-    this.authService.authenticateUser(this.user).subscribe(
-      resp => {
-        this.authService.setBearerToken(resp['token']);
-        this.routerService.routeToDashboard();
+      } 
       }, err => {
         this.submitMessage = err.message;
-        if (err.status === 403) {
-          this.submitMessage = 'Unauthorized';
-        } else {
-          this.submitMessage = 'Http failure response for http://localhost:8080/ap1/v1/auth/login: 404 Not Found';
-        }
       }
     );
   }
+  //on logout clear the localstorage
   
 }

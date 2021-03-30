@@ -8,4 +8,5 @@ import { Component } from '@angular/core';
 export class AppComponent {
   username = "sandyfred@gmail.com";
   title = 'air-quality-app-frontend';
+  // opened = false;
 }

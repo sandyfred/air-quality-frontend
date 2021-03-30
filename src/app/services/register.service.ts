@@ -6,12 +6,12 @@ import { HttpClient } from '@angular/common/http';
 })
 export class RegisterService {
 
-  private regUrl: string;
+  // private regUrl: 'http://localhost:8080/api/v1/auth/register';
   constructor(private httpClient: HttpClient) {
-    this.regUrl = 'http://localhost:8080/api/v1/auth/register';
   }
 
-  registerUser(data: any) {
-    return this.httpClient.post(this.regUrl, data);
+  registerUser(user:any) {
+    const url = 'http://localhost:8080/api/v1/auth/register';
+    return this.httpClient.post(url, user, {responseType:'text'});
   }
 }

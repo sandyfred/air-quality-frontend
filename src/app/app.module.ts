@@ -24,22 +24,23 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { SearchComponent } from './search/search.component';
 import { FavouritesComponent } from './favourites/favourites.component';
-import { ThemePalette } from '@angular/material/core';
-import { ProgressBarMode } from '@angular/material/progress-bar';
 import { RouterModule, Routes } from '@angular/router';
-import { RouterService } from './services/router.service';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { AuthenticationService } from './services/authentication.service';
 import { RegisterService } from './services/register.service';
+import { HomeComponent } from './home/home.component';
+import { SidenavListComponent } from './sidenav-list/sidenav-list.component';
 import { AqicardComponent } from './aqicard/aqicard.component';
 import { MatTableModule } from '@angular/material/table';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { WeatherComponent } from './weather/weather.component';
 import { MatDividerModule } from '@angular/material/divider';
 import { SubscriptionComponent } from './subscription/subscription.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatRadioModule } from '@angular/material/radio';
 
-const appRoutes: Routes = [
+const routes: Routes = [
+  { path: 'home', component: HomeComponent },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   {
@@ -47,6 +48,7 @@ const appRoutes: Routes = [
     component: DashboardComponent,
     canActivate: [CanActivateRouteGuard],
   },
+  {path: 'subscription', component: SubscriptionComponent}
 ];
 
 @NgModule({
@@ -54,8 +56,10 @@ const appRoutes: Routes = [
     AppComponent,
     HeaderComponent,
     LoginComponent,
+    HomeComponent,
     RegisterComponent,
     DashboardComponent,
+    SidenavListComponent,
     SearchComponent,
     FavouritesComponent,
     AqicardComponent,
@@ -63,9 +67,10 @@ const appRoutes: Routes = [
     SubscriptionComponent,
   ],
   imports: [
-    RouterModule.forRoot(appRoutes),
+    RouterModule.forRoot(routes),
     BrowserModule,
     NoopAnimationsModule,
+    FlexLayoutModule,
     MatListModule,
     MatToolbarModule,
     MatSidenavModule,
@@ -87,12 +92,7 @@ const appRoutes: Routes = [
     MatMenuModule,
     MatRadioModule,
   ],
-  providers: [
-    RouterService,
-    AuthenticationService,
-    RegisterService,
-    CanActivateRouteGuard,
-  ],
+  providers: [AuthenticationService, RegisterService, CanActivateRouteGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -2,11 +2,13 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Favourite } from '../favourite';
+import { Place } from '../place';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ServerService {
+  favadded: boolean = false;
   constructor(private http: HttpClient) {}
 
   getFavourites(username: string): Observable<Array<Favourite>> {
@@ -22,6 +24,27 @@ export class ServerService {
   }
 
   deleteFavourite(username: string, city: string) {
-    return this.http.delete(`http://localhost:8081/api/v1/favourites/${username}/${city}`);
+    return this.http.delete(`http://localhost:8081/api/v1/favourites/${username}/${city}`,
+    {
+      headers: {
+        Authorization:
+          'Bearer eyJhbGciOiJIUzI1NiJ9.eyJJc3N1ZXIiOiJJc3N1ZXIiLCJleHAiOjE2MTcxODY0MjcsImlhdCI6MTYxNzAxMzYyN30.hkGFUd3gELnP7tpr3GPVj7pPxE_-6bxkUvY0ufUQ8R8',
+      },
+    });
+  }
+
+  addFavourite(username: string, location: Place) {
+    
+    this.http.post(`http://localhost:8081/api/v1/favourites/${username}`,
+    location,
+    {
+      headers: {
+        Authorization:
+          'Bearer eyJhbGciOiJIUzI1NiJ9.eyJJc3N1ZXIiOiJJc3N1ZXIiLCJleHAiOjE2MTcxODY0MjcsImlhdCI6MTYxNzAxMzYyN30.hkGFUd3gELnP7tpr3GPVj7pPxE_-6bxkUvY0ufUQ8R8',
+      }
+    }).subscribe(res => {
+      console.log(res);
+      this.favadded = true;
+    });
   }
 }

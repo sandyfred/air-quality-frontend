@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { COUNTRIES } from '../countries';
+import { Place } from '../place';
 import { ApiService } from '../services/api.service';
+import { ServerService } from '../services/server.service';
 
 @Component({
   selector: 'app-search',
@@ -15,13 +17,18 @@ export class SearchComponent implements OnInit {
   selectedState?: string;
   cities: string[] = [];
   selectedCity?: string;
+  location: Place;
 
   aqi: number;
   city: string;
   dataSource: any;
   weather: any;
 
-  constructor(private apiService: ApiService, private http: HttpClient) {}
+  constructor(
+    private apiService: ApiService,
+    private http: HttpClient,
+    private serverService: ServerService
+  ) {}
 
   ngOnInit(): void {
     this.getNearestCityAqi();
@@ -93,5 +100,15 @@ export class SearchComponent implements OnInit {
       console.log(this.aqi);
       console.log(this.city);
     });
+  }
+
+  addFav() {
+    this.location = new Place(
+      this.selectedCountry,
+      this.selectedState,
+      this.selectedCity
+    );
+    console.log(this.location);
+    this.serverService.addFavourite('sandyfred@gmail.com', this.location);
   }
 }
