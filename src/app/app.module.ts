@@ -24,22 +24,29 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { SearchComponent } from './search/search.component';
 import { FavouritesComponent } from './favourites/favourites.component';
-import {ThemePalette} from '@angular/material/core';
-import {ProgressBarMode} from '@angular/material/progress-bar';
+import { ThemePalette } from '@angular/material/core';
+import { ProgressBarMode } from '@angular/material/progress-bar';
 import { RouterModule, Routes } from '@angular/router';
 import { RouterService } from './services/router.service';
 import { AuthenticationService } from './services/authentication.service';
 import { RegisterService } from './services/register.service';
 import { AqicardComponent } from './aqicard/aqicard.component';
-import {MatTableModule} from '@angular/material/table';
+import { MatTableModule } from '@angular/material/table';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { WeatherComponent } from './weather/weather.component';
-import {MatDividerModule} from '@angular/material/divider';
+import { MatDividerModule } from '@angular/material/divider';
+import { SubscriptionComponent } from './subscription/subscription.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatRadioModule } from '@angular/material/radio';
 
 const appRoutes: Routes = [
-  {path: 'register', component:RegisterComponent},
+  { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'dashboard', component: DashboardComponent, canActivate: [CanActivateRouteGuard] }
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    canActivate: [CanActivateRouteGuard],
+  },
 ];
 
 @NgModule({
@@ -53,6 +60,7 @@ const appRoutes: Routes = [
     FavouritesComponent,
     AqicardComponent,
     WeatherComponent,
+    SubscriptionComponent,
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
@@ -75,13 +83,15 @@ const appRoutes: Routes = [
     MatFormFieldModule,
     MatTableModule,
     FlexLayoutModule,
-    MatDividerModule
+    MatDividerModule,
+    MatMenuModule,
+    MatRadioModule,
   ],
   providers: [
     RouterService,
     AuthenticationService,
     RegisterService,
-    CanActivateRouteGuard
+    CanActivateRouteGuard,
   ],
   bootstrap: [AppComponent],
 })

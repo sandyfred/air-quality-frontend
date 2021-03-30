@@ -1,6 +1,7 @@
 .example-card {
   width: 500px;
   align-self: center;
+  justify-self: flex-end;
 }
 
 .mat-card-title {
