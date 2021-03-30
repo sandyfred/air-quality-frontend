@@ -2,23 +2,28 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthenticationService {
+  isloggedin: boolean;
   private authUrl = 'http://localhost:8080/api/v1/auth/login';
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient, private router: Router) {
+    this.isloggedin=false;
+  }
 
-  authenticateUser(newUser: any): Observable<any> {
-    sessionStorage.setItem('userEmail', newUser.userEmail);
-    return this.httpClient.post(this.authUrl, newUser, {
-      responseType: 'text',
-    });
+  authenticateUser(newUser:any): Observable<any>  {
+    sessionStorage.setItem("userEmail", newUser.userEmail);
+    this.isloggedin=true;
+    return this.httpClient.post(this.authUrl, newUser, {responseType: 'text'});
   }
 
   // setBearerToken(token: string) {
   //   localStorage.setItem('bearerToken', token);
   // }
-
+  getUserEmailToken() {
+    return localStorage.getItem('userEmail');
+  }
   getBearerToken() {
     return localStorage.getItem('bearerToken');
   }
@@ -47,4 +52,9 @@ export class AuthenticationService {
   }
 
   //.pipe(map(reponse => reponse['isAuthenticated'])).toPromise();
+  logout(){
+    localStorage.clear();
+    this.router.navigate(["/login"]);
+  }
+
 }

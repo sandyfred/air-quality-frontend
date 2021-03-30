@@ -18,5 +18,9 @@
 
 .dashboard {
   margin-left: 200px;
-  margin-right: 200px
+  margin-right: 200px;
+  min-height: 100%;
+  display: block;
+  position: relative;
+  padding-bottom: 56px;
 }

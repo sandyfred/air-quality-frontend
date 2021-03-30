@@ -1,5 +1,4 @@
-
-.cardContainer{
+/* .cardContainer{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -64,4 +63,32 @@
     opacity: 1;
     margin-top: -40px;
     transition-delay: 0.3s;
-  }
+  } */
+
+.example-card {
+  width: 400px;
+  height: 250px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+}
+
+.mat-card-title {
+  padding-top: 10px;
+}
+
+.warning {
+  margin-top: 16px;
+  margin-left: 50px;
+}
+
+.example-header-image {
+  background-size: contain;
+}
+
+ .mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}

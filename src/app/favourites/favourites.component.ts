@@ -44,7 +44,7 @@ export class FavouritesComponent implements OnInit {
   constructor(private serverService: ServerService) { }
 
   ngOnInit(): void {
-    this.serverService.getFavourites('sandyfred@gmail.com').subscribe(
+    this.serverService.getFavourites().subscribe(
       (favs) => {
         this.favs = favs;
         this.isFavouriteExists = true;
@@ -56,7 +56,7 @@ export class FavouritesComponent implements OnInit {
   removeFromFavourites(fav: Favourite) {
     this.favs.splice(this.favs.indexOf(fav), 1);
     this.serverService
-      .deleteFavourite('sandyfred@gmail.com', fav.city)
+      .deleteFavourite(fav.city)
       .subscribe((data) => console.log(data));
   }
 

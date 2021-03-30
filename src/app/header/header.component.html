@@ -6,14 +6,17 @@
     </div> -->
     <div>
         <a routerLink="/home">Air Watch</a>
-    </div>
+    </div> 
     <div fxFlex fxLayout fxLayoutAlign="end">
         <ul fxLayout fxLayoutGap="15px" class="navigation-items">
-            <li>
+            <li *ngIf='!authService.isloggedin'>
                 <a routerLink="/register">Register</a>
             </li>
-            <li>
-                <a routerLink="/login">Login</a>
+            <li *ngIf='!authService.isloggedin'>
+                <a (click)="loggingOut()">Login</a>
+            </li>
+            <li *ngIf='authService.isloggedin'>
+                <a>LogOut</a>
             </li>
         </ul>         
     </div>

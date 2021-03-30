@@ -110,7 +110,7 @@ export class SearchComponent implements OnInit {
       this.selectedCity
     );
     console.log(this.location);
-    this.serverService.addFavourite('sandyfred@gmail.com', this.location);
+    this.serverService.addFavourite(this.location);
     this.favadded.emit(true);
   }
 }
