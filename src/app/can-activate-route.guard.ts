@@ -7,10 +7,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable()
 export class CanActivateRouteGuard implements CanActivate {
-  private bearertoken: string;
   private isAuthenticated: boolean;
   constructor(private router: Router, private authService: AuthenticationService,private http: HttpClient) {
-    this.bearertoken = authService.getBearerToken();
     this.isAuthenticated = true;
   }
 
@@ -26,6 +24,7 @@ export class CanActivateRouteGuard implements CanActivate {
       //     return false;  
       //   } 
       // })
+      this.authService.isUserAuthenticated(this.authService.getBearerToken());
       return true;
 
   }

@@ -1,2 +1,2 @@
-<app-search></app-search>
-<app-favourites></app-favourites>
+<app-search (favadded)="onFavAdd($event)"></app-search>
+<app-favourites [favadded]="favadded"></app-favourites>

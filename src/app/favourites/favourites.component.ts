@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Favourite } from '../favourite';
 import { ServerService } from '../services/server.service';
 
@@ -12,7 +12,7 @@ export class FavouritesComponent implements OnInit {
 
   isFavouriteExists: boolean = false;
   favs: Favourite[]
-  favadded: boolean = false;
+  @Input() favadded: boolean;
   // favs: Favourite[] = [{
   //   aqi: 90,
   //   city: "kollam",
@@ -60,8 +60,6 @@ export class FavouritesComponent implements OnInit {
       .subscribe((data) => console.log(data));
   }
 
-  isfavAdded() {
-    this.favadded = this.serverService.favadded
-  }
+  
 
 }

@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,  EventEmitter, Output } from '@angular/core';
 import { COUNTRIES } from '../countries';
 import { Place } from '../place';
 import { ApiService } from '../services/api.service';
@@ -18,6 +18,7 @@ export class SearchComponent implements OnInit {
   cities: string[] = [];
   selectedCity?: string;
   location: Place;
+  @Output() favadded = new EventEmitter<boolean>();
 
   aqi: number;
   city: string;
@@ -110,5 +111,6 @@ export class SearchComponent implements OnInit {
     );
     console.log(this.location);
     this.serverService.addFavourite('sandyfred@gmail.com', this.location);
+    this.favadded.emit(true);
   }
 }
