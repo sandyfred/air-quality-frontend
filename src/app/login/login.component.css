@@ -35,5 +35,8 @@
   }
   
   .button {
-    width: 100%;
+    color:white;
+    align-items: center;
+    width: 50%;
+    background: #2e4055;
   }

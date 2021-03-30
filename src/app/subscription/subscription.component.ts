@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Subscriber } from '../subscriber';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-subscription',
@@ -11,7 +12,7 @@ export class SubscriptionComponent implements OnInit {
   plan: string;
   validity: string;
   subscriber: Subscriber;
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -19,5 +20,7 @@ export class SubscriptionComponent implements OnInit {
   onSubmit() {
     this.subscriber = new Subscriber(this.username,this.username,this.plan,new Date(),this.validity);
     console.log(this.subscriber);
+    alert("Subscribed!")
+    this.router.navigate(["../dashboard"])
   }
 }

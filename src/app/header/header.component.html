@@ -16,7 +16,7 @@
                 <a routerLink="/login">Sign In</a>
             </li>
             <li *ngIf='authService.isloggedin'>
-                <a (click)="loggingOut()">
+                <a href=# (click)="loggingOut()">
                     <mat-icon>logout</mat-icon>
                 </a>
             </li>

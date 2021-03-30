@@ -35,7 +35,13 @@
   }
   
   .button {
+    color:white;
     align-items: center;
     width: 50%;
     background: #2e4055;
   }
+  .clearfix:after {
+    content:"";
+    display:table;
+    clear:both;
+}

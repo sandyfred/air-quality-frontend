@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
         console.log(data)
         localStorage.setItem('bearerToken', data);
         localStorage.setItem("userEmail",this.formGroup.get('userEmail').value)
-        this.router.navigate(["/dashboard"]);
+        this.router.navigate(["../dashboard"]);
 
       } 
       }, err => {
