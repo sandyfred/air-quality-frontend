@@ -1,0 +1,56 @@
+<div *ngIf="isFavouriteExists">
+  <h2 [style.text-align]="center">Favourites</h2>
+  <div class="grid-container">
+    <mat-card class="example-card" *ngFor="let fav of favs">
+      <mat-card-header>
+        <mat-card-title>{{ fav.aqi }}</mat-card-title>
+        <mat-card-subtitle>{{ fav.city }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-list>
+          <mat-divider></mat-divider>
+          <mat-list-item>
+            Carbon Monoxide:
+            <span class="elem">{{ fav.pollutants.co }} μg/m<sup>3</sup></span>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+          <mat-list-item>
+            Sulphur Dioxide:
+            <span class="elem">{{ fav.pollutants.so2 }} μg/m<sup>3</sup></span>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+          <mat-list-item>
+            Nitrogen Dioxide:
+            <span class="elem">{{ fav.pollutants.no2 }} μg/m<sup>3</sup></span>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+          <mat-list-item>
+            Ozone:
+            <span class="elem">{{ fav.pollutants.o3 }} μg/m<sup>3</sup></span>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+          <mat-list-item>
+            PM 2.5:
+            <span class="elem"
+              >{{ fav.pollutants.pm2_5 }} μg/m<sup>3</sup></span
+            >
+          </mat-list-item>
+          <mat-divider></mat-divider>
+          <mat-list-item>
+            PM 10:
+            <span class="elem">{{ fav.pollutants.pm10 }} μg/m<sup>3</sup></span>
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+      <mat-card-actions>
+        <button
+          (click)="removeFromFavourites(fav)"
+          mat-mini-fab
+          color="primary"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

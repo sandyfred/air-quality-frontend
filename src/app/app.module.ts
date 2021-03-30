@@ -22,19 +22,27 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { SearchComponent } from './search/search.component';
+import { FavouritesComponent } from './favourites/favourites.component';
+import {ThemePalette} from '@angular/material/core';
+import {ProgressBarMode} from '@angular/material/progress-bar';
 import { RouterModule, Routes } from '@angular/router';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { AuthenticationService } from './services/authentication.service';
 import { RegisterService } from './services/register.service';
 import { HomeComponent } from './home/home.component';
 import { SidenavListComponent } from './sidenav-list/sidenav-list.component';
+import { AqicardComponent } from './aqicard/aqicard.component';
+import {MatTableModule} from '@angular/material/table';
+import { WeatherComponent } from './weather/weather.component';
+import {MatDividerModule} from '@angular/material/divider';
 
 const routes: Routes = [
   {path: 'home', component:HomeComponent},
   {path:'', redirectTo:'/home',pathMatch:'full'},
   {path: 'register', component:RegisterComponent},
   { path: 'login', component: LoginComponent },
-  { path: 'dashboard', component: DashboardComponent, canActivate: [CanActivateRouteGuard] }
+  { path: 'dashboard', component: DashboardComponent}
 ];
 
 @NgModule({
@@ -45,7 +53,11 @@ const routes: Routes = [
     HomeComponent,
     RegisterComponent,
     DashboardComponent,
-    SidenavListComponent
+    SidenavListComponent,
+    SearchComponent,
+    FavouritesComponent,
+    AqicardComponent,
+    WeatherComponent,
   ],
   imports: [
     RouterModule.forRoot(routes),
@@ -66,7 +78,10 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     MatSelectModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatTableModule,
+    FlexLayoutModule,
+    MatDividerModule
   ],
   providers: [
     AuthenticationService,
