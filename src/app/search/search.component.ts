@@ -46,7 +46,7 @@ export class SearchComponent implements OnInit {
         this.weather = response['data'].current.weather;
         this.http
           .get(
-            `http://api.openweathermap.org/data/2.5/air_pollution?lat=${response['data'].location.coordinates[1]}&lon=${response['data'].location.coordinates[0]}&appid=bb08115ee62ead9f1188cc5419645a27`
+            `http://api.openweathermap.org/data/2.5/air_pollution?lat=${response['data'].location.coordinates[1]}&lon=${response['data'].location.coordinates[0]}&appid=9b1a694de27b21325960033c7ca8755f`
           )
           .subscribe((res) => {
             this.dataSource = Object.keys(res['list'][0].components).map(
@@ -93,7 +93,7 @@ export class SearchComponent implements OnInit {
         this.weather = response['data'].current.weather;
         this.http
           .get(
-            `http://api.openweathermap.org/data/2.5/air_pollution?lat=${response['data'].location.coordinates[1]}&lon=${response['data'].location.coordinates[0]}&appid=bb08115ee62ead9f1188cc5419645a27`
+            `http://api.openweathermap.org/data/2.5/air_pollution?lat=${response['data'].location.coordinates[1]}&lon=${response['data'].location.coordinates[0]}&appid=9b1a694de27b21325960033c7ca8755f`
           )
           .subscribe((res) => {
             this.dataSource = Object.keys(res['list'][0].components).map(
@@ -116,7 +116,7 @@ export class SearchComponent implements OnInit {
       this.weather = response['data'].current.weather;
       this.http
         .get(
-          `http://api.openweathermap.org/data/2.5/air_pollution?lat=${response['data'].location.coordinates[1]}&lon=${response['data'].location.coordinates[0]}&appid=bb08115ee62ead9f1188cc5419645a27`
+          `http://api.openweathermap.org/data/2.5/air_pollution?lat=${response['data'].location.coordinates[1]}&lon=${response['data'].location.coordinates[0]}&appid=9b1a694de27b21325960033c7ca8755f`
         )
         .subscribe((res) => {
           this.dataSource = Object.keys(res['list'][0].components).map(

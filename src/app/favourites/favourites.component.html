@@ -1,15 +1,20 @@
-<div fxFlex fxLayout fxLayoutAlign="end">
-  <ul fxLayout fxLayoutGap="15px" class="navigation-items">
-      <li>
-          <a routerLink="/favourites">Favourites</a>
-      </li>
-      <li>
-          <a routerLink="/subscription">Subscribe</a>
-      </li>
-  </ul>         
-</div>
+<mat-toolbar>
+  <div>
+    <!-- <a routerLink="/home">
+      <mat-icon>home</mat-icon>
+    </a> -->
+    <!-- <br /> -->
+    <a routerLink="/dashboard">
+      <mat-icon>dashboard</mat-icon>
+    </a>
+  </div>
+  <div fxFlex fxLayout fxLayoutAlign="start">Air Watch</div>
+  <div fxFlex fxLayout fxLayoutAlign="end">
+    <ul fxLayout fxLayoutGap="15px" class="navigation-items"></ul>
+  </div>
+</mat-toolbar>
 <div *ngIf="isFavouriteExists">
-  <h2 [style.text-align]="center">Favourites</h2>
+  <h2 class="favouritesheader">Favourites</h2>
   <div class="grid-container">
     <mat-card class="example-card" *ngFor="let fav of favs">
       <mat-card-header>
@@ -64,4 +69,12 @@
     </mat-card>
   </div>
 </div>
-<app-footer></app-footer>
+<mat-toolbar color="primary">
+  <div fxFlex fxLayout fxLayoutAlign="center">
+      <ul fxLayout fxLayoutGap="15px" class="navigation-items">
+          <li>
+              <a routerLink="/subscription">Consider Subscribing to our Services!</a>
+          </li>
+      </ul>         
+  </div>
+</mat-toolbar>

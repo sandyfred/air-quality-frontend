@@ -1,13 +1,16 @@
-<div fxFlex fxLayout fxLayoutAlign="end">
-  <ul fxLayout fxLayoutGap="15px" class="navigation-items">
-      <li>
-          <a routerLink="/favourites">Favourites</a>
-      </li>
-      <li>
-          <a routerLink="/subscription">Subscribe</a>
-      </li>
-  </ul>         
+<mat-toolbar>
+  <div>
+    <a routerLink="/home">
+        <mat-icon>home</mat-icon>
+    </a>
+    <br>
+    <a routerLink="/dashboard">
+        <mat-icon>dashboard</mat-icon>
+    </a>
 </div>
+</mat-toolbar>
+
+
 <div class="grid-cont">
   <mat-card class="example-card">
     <mat-card-header>
@@ -34,3 +37,12 @@
     </mat-card-actions>
   </mat-card>
 </div>
+<mat-toolbar color="primary">
+  <div fxFlex fxLayout fxLayoutAlign="center">
+      <ul fxLayout fxLayoutGap="15px" class="navigation-items">
+          <li>
+              <a routerLink="/subscription">Consider Subscribing to our Services!</a>
+          </li>
+      </ul>         
+  </div>
+</mat-toolbar>

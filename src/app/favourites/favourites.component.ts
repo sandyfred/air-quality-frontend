@@ -44,9 +44,11 @@ export class FavouritesComponent implements OnInit {
 
   ngOnInit(): void {
     this.serverService.getFavourites().subscribe(
+      
       (favs) => {
         this.favs = favs;
         this.isFavouriteExists = true;
+        console.log(favs);
       },
       (err) => (this.isFavouriteExists = false)
     );
