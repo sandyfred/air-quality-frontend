@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, Input } from '@angular/core';
 import { ApiService } from '../services/api.service';
+import { Place } from '../place';
+import { ServerService } from '../services/server.service';
 
 @Component({
   selector: 'app-aqicard',
@@ -10,10 +12,13 @@ import { ApiService } from '../services/api.service';
 export class AqicardComponent implements OnInit {
   @Input() aqi: number;
   @Input() city: string;
+  @Input() state: string;
+  @Input() country: string;
   status: string;
   @Input() dataSource: any;
+  location: Place;
 
-  constructor(private apiService: ApiService, private http: HttpClient) {}
+  constructor(private apiService: ApiService, private http: HttpClient,private serverService: ServerService) {}
 
   ngOnInit(): void {
     
@@ -41,4 +46,14 @@ export class AqicardComponent implements OnInit {
     }
   }
   displayedColumns: string[] = ['name', 'value'];
+
+  addFav() {
+    this.location = new Place(
+      this.country,
+      this.state,
+      this.city
+    );
+    console.log(this.location);
+    this.serverService.addFavourite(this.location);
+  }
 }

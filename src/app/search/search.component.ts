@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit,  EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { COUNTRIES } from '../countries';
 import { Place } from '../place';
 import { ApiService } from '../services/api.service';
@@ -18,10 +18,11 @@ export class SearchComponent implements OnInit {
   cities: string[] = [];
   selectedCity?: string;
   location: Place;
-  @Output() favadded = new EventEmitter<boolean>();
 
   aqi: number;
-  city: string;
+  city: string = localStorage.getItem('city');
+  state: string = localStorage.getItem('state');
+  country: string = localStorage.getItem('country');
   dataSource: any;
   weather: any;
 
@@ -32,7 +33,33 @@ export class SearchComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getNearestCityAqi();
+    // this.getNearestCityAqi();
+
+    this.apiService
+      .getCityAqi(this.country, this.state, this.city)
+      .subscribe((response) => {
+        this.aqi = response['data'].current.pollution.aqius;
+        // this.city = response['data'].city;
+        this.city = response['data'].city;
+        this.country = response['data'].country;
+        this.state = response['data'].state;
+        this.weather = response['data'].current.weather;
+        this.http
+          .get(
+            `http://api.openweathermap.org/data/2.5/air_pollution?lat=${response['data'].location.coordinates[1]}&lon=${response['data'].location.coordinates[0]}&appid=bb08115ee62ead9f1188cc5419645a27`
+          )
+          .subscribe((res) => {
+            this.dataSource = Object.keys(res['list'][0].components).map(
+              (key) => ({
+                name: key,
+                value: res['list'][0].components[key],
+              })
+            );
+            console.log(this.dataSource);
+          });
+        console.log(this.aqi);
+        console.log(this.city);
+      });
   }
 
   getStates() {
@@ -61,6 +88,8 @@ export class SearchComponent implements OnInit {
       .subscribe((response) => {
         this.aqi = response['data'].current.pollution.aqius;
         this.city = response['data'].city;
+        this.country = response['data'].country;
+        this.state = response['data'].state;
         this.weather = response['data'].current.weather;
         this.http
           .get(
@@ -111,6 +140,5 @@ export class SearchComponent implements OnInit {
     );
     console.log(this.location);
     this.serverService.addFavourite(this.location);
-    this.favadded.emit(true);
   }
 }

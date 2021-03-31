@@ -11,6 +11,8 @@ import { Router } from "@angular/router"
 export class HomeComponent implements OnInit {
   aqi: number;
   city: string;
+  state: string;
+  country: string;
   status: string;
 
   countries = COUNTRIES;
@@ -27,7 +29,9 @@ export class HomeComponent implements OnInit {
     this.apiService.getNearestCity().subscribe((response) => {
       this.aqi = response['data'].current.pollution.aqius;
       this.city = response['data'].city;
-      this.weather = response['data'].current.weather
+      this.weather = response['data'].current.weather;
+      this.country = response['data'].country;
+      this.state = response['data'].state;
     });
   }
 
@@ -79,10 +83,15 @@ export class HomeComponent implements OnInit {
       .subscribe((response) => {
         this.aqi = response['data'].current.pollution.aqius;
         this.city = response['data'].city;
+        this.state = response['data'].state;
+        this.country = response['data'].country;
       });
   }
 
   routeToLogin() {
+    localStorage.setItem('city', this.city);
+    localStorage.setItem('country', this.country);
+    localStorage.setItem('state',this.state);
     this.router.navigate(["../login"]);
   }
 }

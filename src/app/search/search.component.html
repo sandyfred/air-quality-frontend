@@ -3,6 +3,8 @@
     [aqi]="aqi"
     [city]="city"
     [dataSource]="dataSource"
+    [country]="country"
+    [state]='state'
   ></app-aqicard>
 
   <div class="grid-container2">
@@ -49,7 +51,7 @@
             </mat-option>
           </mat-select>
         </mat-form-field>
-        <button mat-button (click)="addFav()" *ngIf="selectedCity">Add to Favourites</button>
+        <!-- <button mat-button (click)="addFav()" *ngIf="selectedCity">Add to Favourites</button> -->
       </mat-card-content>
     </mat-card>
     <app-weather [weather]="weather" [city]="city"></app-weather>
