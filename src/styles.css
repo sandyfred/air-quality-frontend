@@ -6,7 +6,7 @@ html, body { height: 100%; margin:0 }
    margin: 0;
    font-family: Roboto, "Helvetica Neue", sans-serif;
    background-color:white;
-   background-image: "../../assets/home-page-background.jpg";
+   background-image: url("src\assets\background_img\home-page-background.jpg");
    /* overflow: hidden; */
  }
 
