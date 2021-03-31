@@ -6,12 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
-  favadded: boolean = false;
+  
   constructor() {}
 
   ngOnInit(): void {}
 
-  onFavAdd(favadded: boolean) {
-    this.favadded = favadded;
-  }
 }

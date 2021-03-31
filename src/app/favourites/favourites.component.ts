@@ -12,7 +12,6 @@ export class FavouritesComponent implements OnInit {
 
   isFavouriteExists: boolean = false;
   favs: Favourite[]
-  @Input() favadded: boolean;
   // favs: Favourite[] = [{
   //   aqi: 90,
   //   city: "kollam",

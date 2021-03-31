@@ -65,15 +65,13 @@
     transition-delay: 0.3s;
   } */
 
-.example-card {
+/* .example-card {
   width: 400px;
   height: 250px;
-}
+} */
 
 .grid-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  justify-items: center;
+  background-image: url("../../assets/home-page-background.jpg");
 }
 
 .mat-card-title {
@@ -89,6 +87,21 @@
   background-size: contain;
 }
 
- .mat-form-field + .mat-form-field {
+ /* .mat-form-field + .mat-form-field {
   margin-left: 8px;
+} */
+
+.search-card {
+  width: 250px;
+  position: absolute;
+  left: 350px;
+  top: 150px;
+}
+
+.aqi-card{
+  width: 250px;
+  position: absolute;
+  top: 150px;
+  right: 350px;
+  height: 250px;
 }

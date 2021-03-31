@@ -6,7 +6,8 @@ html, body { height: 100%; margin:0 }
    margin: 0;
    font-family: Roboto, "Helvetica Neue", sans-serif;
    background-color:white;
-   overflow: hidden;
+   background-image: "../../assets/home-page-background.jpg";
+   /* overflow: hidden; */
  }
 
  

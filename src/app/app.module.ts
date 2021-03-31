@@ -50,6 +50,7 @@ const routes: Routes = [
     canActivate: [CanActivateRouteGuard],
   },
   { path: 'subscription', component: SubscriptionComponent },
+  { path: 'favourites', component: FavouritesComponent },
 ];
 
 @NgModule({
