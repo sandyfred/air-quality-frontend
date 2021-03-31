@@ -24,6 +24,28 @@
 <div style="text-align:center">
   <label class="error-message">{{ submitMessage }}</label>
 </div> -->
+<mat-toolbar>
+  <div>
+      <a routerLink="/home">
+          <mat-icon>home</mat-icon>
+      </a>
+      <br>
+      <a routerLink="/dashboard">
+          <mat-icon>dashboard</mat-icon>
+      </a>
+  </div>
+  <div fxFlex fxLayout fxLayoutAlign="start">Air Watch</div>
+  <div fxFlex fxLayout fxLayoutAlign="end">
+    <ul fxLayout fxLayoutGap="15px" class="navigation-items">
+        <li>
+            <a routerLink="/register">Sign Up</a>
+        </li>
+        <li>
+            <a routerLink="/login">Sign In</a>
+        </li>
+    </ul>         
+</div>
+  </mat-toolbar>
 <div [formGroup]="formGroup">
 <div class="container">
   <mat-form-field class="form-element">
