@@ -1,2 +1,36 @@
+<mat-toolbar>
+    <div>
+        <!-- <button mat-icon-button (click)="onToggleSideNav()">
+            <mat-icon>menu</mat-icon>
+        </button> -->
+    </div>
+    <div>
+        <a routerLink="/home">Air Watch</a>
+    </div> 
+    <div fxFlex fxLayout fxLayoutAlign="end">
+        <ul fxLayout fxLayoutGap="15px" class="navigation-items">
+            <li>
+                <a routerLink="/favourites">Favourites</a>
+            </li>
+            <li>
+                <a routerLink="/subscription">Subscribe</a>
+            </li>
+            <li >
+                <a href=# (click)="loggingOut()">
+                    <mat-icon>logout</mat-icon>
+                </a>
+            </li>
+        </ul>         
+    </div>
+</mat-toolbar>
 <app-search></app-search>
+<mat-toolbar color="primary">
+    <div fxFlex fxLayout fxLayoutAlign="center">
+        <ul fxLayout fxLayoutGap="15px" class="navigation-items">
+            <li>
+                <a routerLink="/subscription">Consider Subscribing to our Services!</a>
+            </li>
+        </ul>         
+    </div>
+</mat-toolbar>
 
