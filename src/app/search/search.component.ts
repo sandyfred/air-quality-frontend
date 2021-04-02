@@ -34,7 +34,9 @@ export class SearchComponent implements OnInit {
 
   ngOnInit(): void {
     // this.getNearestCityAqi();
-
+    if(this.country === null) {
+      this.getNearestCityAqi();
+    } else {
     this.apiService
       .getCityAqi(this.country, this.state, this.city)
       .subscribe((response) => {
@@ -60,6 +62,7 @@ export class SearchComponent implements OnInit {
         console.log(this.aqi);
         console.log(this.city);
       });
+    }
   }
 
   getStates() {

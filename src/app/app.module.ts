@@ -41,7 +41,7 @@ import { FooterComponent } from './footer/footer.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   {
@@ -51,6 +51,7 @@ const routes: Routes = [
   },
   { path: 'subscription', component: SubscriptionComponent },
   { path: 'favourites', component: FavouritesComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];
 
 @NgModule({

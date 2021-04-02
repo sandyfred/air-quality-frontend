@@ -1,12 +1,14 @@
 <mat-toolbar>
     <div>
-        <!-- <button mat-icon-button (click)="onToggleSideNav()">
-            <mat-icon>menu</mat-icon>
-        </button> -->
-    </div>
-    <div>
-        <a routerLink="/home">Air Watch</a>
-    </div> 
+            <a routerLink="/home">
+                <mat-icon>home</mat-icon>
+            </a>
+            <br>
+            <a routerLink="/dashboard">
+                <mat-icon>dashboard</mat-icon>
+            </a>
+        </div>
+        <div fxFlex fxLayout fxLayoutAlign="start">Air Watch</div>
     <div fxFlex fxLayout fxLayoutAlign="end">
         <ul fxLayout fxLayoutGap="15px" class="navigation-items">
             <li>
@@ -16,14 +18,16 @@
                 <a routerLink="/subscription">Subscribe</a>
             </li>
             <li >
-                <a href=# (click)="loggingOut()">
+                <a routerLink="/home">
                     <mat-icon>logout</mat-icon>
                 </a>
             </li>
         </ul>         
     </div>
 </mat-toolbar>
+<br />
 <app-search></app-search>
+<br />
 <mat-toolbar>
     <div fxFlex fxLayout fxLayoutAlign="center">
         <ul fxLayout fxLayoutGap="15px" class="navigation-items">

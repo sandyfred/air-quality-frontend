@@ -1,16 +1,25 @@
 <mat-toolbar>
   <div>
-    <!-- <a routerLink="/home">
+    <a routerLink="/home">
       <mat-icon>home</mat-icon>
-    </a> -->
-    <!-- <br /> -->
+    </a>
+    <br />
     <a routerLink="/dashboard">
       <mat-icon>dashboard</mat-icon>
     </a>
   </div>
   <div fxFlex fxLayout fxLayoutAlign="start">Air Watch</div>
   <div fxFlex fxLayout fxLayoutAlign="end">
-    <ul fxLayout fxLayoutGap="15px" class="navigation-items"></ul>
+    <ul fxLayout fxLayoutGap="15px" class="navigation-items">
+      <li>
+        <a routerLink="/subscription">Subscribe</a>
+      </li>
+      <li>
+        <a routerLink="/home">
+          <mat-icon>logout</mat-icon>
+        </a>
+      </li>
+    </ul>
   </div>
 </mat-toolbar>
 <div *ngIf="isFavouriteExists">
@@ -69,12 +78,13 @@
     </mat-card>
   </div>
 </div>
-<mat-toolbar color="primary">
+<br />
+<mat-toolbar id="footer" color="primary">
   <div fxFlex fxLayout fxLayoutAlign="center">
-      <ul fxLayout fxLayoutGap="15px" class="navigation-items">
-          <li>
-              <a routerLink="/subscription">Consider Subscribing to our Services!</a>
-          </li>
-      </ul>         
+    <ul fxLayout fxLayoutGap="15px" class="navigation-items">
+      <li>
+        <a routerLink="/subscription">Consider Subscribing to our Services!</a>
+      </li>
+    </ul>
   </div>
 </mat-toolbar>

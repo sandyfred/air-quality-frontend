@@ -49,9 +49,10 @@ export class FavouritesComponent implements OnInit {
         this.favs = favs;
         this.isFavouriteExists = true;
         console.log(favs);
-      },
-      (err) => (this.isFavouriteExists = false)
-    );
+      });
+    //   },
+    //   (err) => (this.isFavouriteExists = false)
+    // );
   }
 
   removeFromFavourites(fav: Favourite) {
