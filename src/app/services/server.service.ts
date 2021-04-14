@@ -9,7 +9,6 @@ import { AuthenticationService } from './authentication.service'
   providedIn: 'root',
 })
 export class ServerService {
-  favadded: boolean = false;
   username: string;
   token: string;
   constructor(private http: HttpClient,private authService: AuthenticationService) {}
@@ -43,7 +42,8 @@ export class ServerService {
 // eyJhbGciOiJIUzI1NiJ9.eyJJc3N1ZXIiOiJJc3N1ZXIiLCJleHAiOjE2MTcxODY0MjcsImlhdCI6MTYxNzAxMzYyN30.hkGFUd3gELnP7tpr3GPVj7pPxE_-6bxkUvY0ufUQ8R8
   addFavourite(location: Place) {
     this.username = this.authService.getUserEmailToken();
-    this.token = this.authService.getBearerToken();
+    // this.token = this.authService.getBearerToken();
+    this.token = "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJzYW5keWZyZWRAZ21haWwuY29tIiwic3ViIjoiU2FuZHlmcmVkMSIsImlhdCI6MTYxNzExNDUwMn0.GYmhXFzjEr_ZW4yn4m9z0hnQ14L9W9sq9pwGHDEy_Ck"
     this.http.post(`http://localhost:8081/api/v1/favourites/${this.username}`,
     location,
     {
@@ -53,7 +53,6 @@ export class ServerService {
       }
     }).subscribe(res => {
       console.log(res);
-      this.favadded = true;
     });
   }
 }
